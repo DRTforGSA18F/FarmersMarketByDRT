@@ -1,8 +1,7 @@
 $icon-font-path: "../fonts/";
 @import 'app/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap.scss';
 
-/*@import 'app/bower_components/fontawesome/scss/font-awesome.scss';*/
-
+@import 'vendor/fontawesome/scss/font-awesome.scss';
 .hidden {
     display: none!important;
     visibility: hidden!important;
@@ -80,45 +79,13 @@ header {
     margin-left: -23px;
 }
 
-
-/* Make the masthead heading the same height as the navigation */
-
-.header h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
-}
-/* Custom page footer */
-
-.footer {
-    padding-top: 19px;
-    color: #777;
-    border-top: 1px solid #e5e5e5;
+.container-flex{
+    display: flex;
+    align-items: baseline;     
 }
 
-.container-narrow > hr {
-    margin: 30px 0;
-}
-/* Main marketing message and sign up button */
-
-.jumbotron {
-    text-align: center;
-    border-bottom: 1px solid #e5e5e5;
-}
-
-.jumbotron .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-}
-/* Supporting marketing content */
-
-.marketing {
-    margin: 40px 0;
-}
-
-.marketing p + h4 {
-    margin-top: 28px;
+.distance{
+    
 }
 /* Responsive: Portrait tablets and up */
 
@@ -138,9 +105,7 @@ header {
     }
     /* Remove the bottom border on the jumbotron for visual effect */
     
-    .jumbotron {
-        border-bottom: 0;
-    }
+    
 }
 
 @import 'helper.scss';

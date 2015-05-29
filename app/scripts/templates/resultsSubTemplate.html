@@ -1,9 +1,8 @@
-<div class="row">
+<div class="row mbm">
     <div class="col-md-6">
-        <h2>Number of result found <%-collection.length%></h2>
-    </div>
-    <div class="col-md-6 text-right">
-        <ul id="myTab" class="nav nav-pills" role="tablist">
+		<h2 class="man">Number of result found <%-collection.length%></h2>    </div>
+    <div class="col-md-6">
+        <ul id="myTab" class="nav nav-pills pull-right" role="tablist">
             <li role="presentation" class="active"><a href="#list" id="list-tab" role="tab" data-toggle="tab" aria-controls="list" aria-expanded="true">List View</a></li>
             <li role="presentation"><a href="#map" role="tab" id="map-tab" data-toggle="tab" aria-controls="map">Map View</a></li>
             
@@ -17,12 +16,14 @@
                 <div class="panel-heading">
                   <div class="row">
                     <div class="col-md-2">
+                      <div class="container-flex">
                       <span class="fa-stack fa-lg">
                         <i class="fa fa-map-marker fa-stack-2x" style="font-size: 70px;"></i>
                         <i class="fa fa-stack-1x" style="width: 100%; top: 20%;"><%- i%></i>
                       </span>
                       
-                      <div class="distance">5.9 mi</div>
+                      <div class="distance pls">5.9 mi</div>
+                      </div>
                     </div>
                     <div class="col-md-6">
                       <h3 class="title">
@@ -54,15 +55,23 @@
                   </div>
                   <!-- end of seasons display-->
                   <div class="col-md-4 evaluation">
-                    <i class="fa fa-circle"></i><i class="fa fa-circle"></i><i class="fa fa-circle"></i><i class="fa fa-circle-thin"></i><i class="fa fa-circle-thin"></i>
-                    <div>List of Products available</div>
+                   <i class="fa fa-circle"></i><i class="fa fa-circle"></i><i class="fa fa-circle"></i><i class="fa fa-circle-thin"></i><i class="fa fa-circle-thin"></i>
+                   </div>
+                   </div> <div class="row">
+                  <div class="col-md-12 evaluation">
+                   
+                    <h2>List of Products available</h2>
                       <%if (collection[i].products !== undefined) {%>
+                      <ul class="list-inline">
                         <%for (var j=0; j < collection[i].products.length; j++) { %>
+                          <li>
                           <div class="rating dots">
                             <div class="value value-3"></div>
                           </div>
                           <div><%- collection[i].products.models[j].productName%>: <%- collection[i].products.models[j].productAvailability %></div>
+                          </li>
                         <%}%>
+                        </ul>
                       <%}%>
                     
                   </div>

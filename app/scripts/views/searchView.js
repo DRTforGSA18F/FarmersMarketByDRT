@@ -44,6 +44,7 @@ define([
 
 			var self = this;
 			this.$el.find("#geocomplete").geocomplete({
+			  map:'#map_canvas',
 	          blur: true,
 	          geocodeAfterResult: true
 	        }).bind("geocode:result", function(event, result){

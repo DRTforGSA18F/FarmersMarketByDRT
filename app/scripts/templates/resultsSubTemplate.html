@@ -1,11 +1,10 @@
 <div class="row mbm">
     <div class="col-md-6">
-        <h2 class="man">Number of result found [x]</h2>
-    </div>
+		<h2 class="man">Number of result found <%-collection.length%></h2>    </div>
     <div class="col-md-6">
         <ul id="myTab" class="nav nav-pills pull-right" role="tablist">
             <li role="presentation" class="active"><a href="#list" id="list-tab" role="tab" data-toggle="tab" aria-controls="list" aria-expanded="true">List View</a></li>
-            <li role="presentation"><a href="#map" role="tab" id="map-tab" data-toggle="tab" aria-controls="map">Map View</a></li>
+            <li role="presentation"><a href="#mapcanvas" role="tab" id="map-tab" data-toggle="tab" aria-controls="mapcanvas">Map View</a></li>
             
         </ul>
     </div>
@@ -20,7 +19,7 @@
                       <div class="container-flex">
                       <span class="fa-stack fa-lg">
                         <i class="fa fa-map-marker fa-stack-2x" style="font-size: 70px;"></i>
-                        <i class="fa fa-stack-1x" style="width: 100%; top: 20%;">1</i>
+                        <i class="fa fa-stack-1x" style="width: 100%; top: 20%;"><%- i+1%></i>
                       </span>
                       
                       <div class="distance pls">5.9 mi</div>
@@ -44,16 +43,26 @@
                     </div>
                     <%}%>
                   </div>
+                  <!-- Payment Methods -->
+                  <div class="col-md-4 details">
+                    <h3>Payment Methods </h3>
+                        Credit:<%- collection[i].credit%><br>
+                        WIC:<%- collection[i].wic%><br>
+                        WIC Cash:<%- collection[i].wicCash%> <br>
+                        SFMNP:<%- collection[i].sfmnp%> <br>
+                        SNAP:<%- collection[i].snap%>
+                  </div>
+                  <!-- End of Payment Methods -->
                   <!-- display the list of seasons-->
+                  <%if (collection[i].Seasons !== undefined) {%>
                   <div class="col-md-4 details">
                     <ul>
-                      <%if (collection[i].Seasons !== undefined) {%>
                         <%for (var j=0; j < collection[i].Seasons.length; j++) { %>
                           <li><%- collection[i].Seasons.models[j].seasonDate%>: <%- collection[i].Seasons.models[j].seasonTime %></li>
                         <%}%>
-                      <%}%>
                     </ul>
                   </div>
+                  <%}%>
                   <!-- end of seasons display-->
                   <div class="col-md-4 evaluation">
                    <i class="fa fa-circle"></i><i class="fa fa-circle"></i><i class="fa fa-circle"></i><i class="fa fa-circle-thin"></i><i class="fa fa-circle-thin"></i>
@@ -97,8 +106,9 @@
               </div>
             <%}%>
     </div>
-    <div role="tabpanel" class="tab-pane fade" id="map" aria-labelledby="map-tab">
-        <p>Map view to be added</p>
-    </div>
+    <!--<div role="tabpanel" class="tab-pane fade" id="map" aria-labelledby="map-tab">
+        <div id='mapcanvas' style="width:900px; height:400px;"></div>
+    </div>-->
+    <div id='mapcanvas' style="width:900px; height:400px;"></div>
 </div>
 

@@ -84,10 +84,37 @@ define([
 	            });
 
 	            self.$el.find('#resultsContainer').html(self.resultsTemplate)
+
+	            //load google maps
+	            self.loadGoogleMap(self.farmersMarket);
+	            //google.maps.event.addDomListener(window, 'load', self.loadGoogleMap);
             })
 
 
-        }
+        },
+	    loadGoogleMap:function(marketCollection) {
+			  //var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+			  var mapOptions = {
+			          center: { lat: parseFloat(this.model.get('lat')), lng: parseFloat(this.model.get('lng'))},
+			          zoom: 10
+			        };
+			  var map = new google.maps.Map(document.getElementById('mapcanvas'), mapOptions);
+			  var centerSearch = new google.maps.Marker({
+				      position: new google.maps.LatLng(parseFloat(this.model.get('lat')), parseFloat(this.model.get('lng'))),
+				      map: map,
+				      title: this.model.get('formattedAddress')
+				  	});
+
+			  _.each(marketCollection.models, function(market){
+				  	var marker = new google.maps.Marker({
+				      position: new google.maps.LatLng(parseFloat(market.get('location').coordinates[1]), parseFloat(market.get('location').coordinates[0])),
+				      map: map,
+				      title: market.get('marketName')
+				  	});
+				  	marker.setMap(map);
+			  });
+
+	      }
 
 	});
 

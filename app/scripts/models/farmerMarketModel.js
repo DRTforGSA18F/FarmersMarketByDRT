@@ -56,7 +56,7 @@ define([
             "lng":details.lng,
             "lat":details.lat,
             "location":details.location,
-            "credit":details.Credit,
+            "credit":details.credit,
             "wic":details.WIC,
             "wicCash":details.WICcash,
             "sfmnp":details.SFMNP,

@@ -54,42 +54,51 @@ define([
 			return this;
 
 		},
-		getResults:function(){
-			$("#geocomplete").trigger("geocode");
-			//set the appropriate values to the request Model
-			//get the type of search
-			if (this.geocodeResult.address_components.length > 1) 
-			{
-				//the first item in the array gives the search type values
-				this.model.attributes.loc = this.geocodeResult.address_components[0].short_name;
-				this.model.attributes.type = this.geocodeResult.address_components[0].types[0];
-				//set the lat and long values from the geometry section
-				this.model.attributes.lat = this.geocodeResult.geometry.location.A;
-				this.model.attributes.lng = this.geocodeResult.geometry.location.F;
+		displayResults:function(){
 
-				//Set the formatted address
-				this.model.attributes.formattedAddress = this.geocodeResult.formatted_address;
-			}
-			//Load the farmers Market collection
-            this.farmersMarket = new FarmersMarket();
-            this.farmersMarket.url = this.model.generateURL();
-            //this.farmersMarket.parse(JSON.parse(MockData));
-            var self = this;
-            this.farmersMarket.fetch().done(function(){
-	            //Display the results 
-	            self.$el.find('#resultsContainer').html('');
+				$("#geocomplete").trigger("geocode");
+				//set the appropriate values to the request Model
+				//get the type of search
 
-	            self.resultsTemplate = _.template(ResultsSubTemplate,{
-	            	collection:self.farmersMarket.toJSON()
+				if (this.geocodeResult.address_components.length > 1) 
+				{
+					//the first item in the array gives the search type values
+					this.model.attributes.loc = this.geocodeResult.address_components[0].short_name;
+					this.model.attributes.type = this.geocodeResult.address_components[0].types[0];
+					//set the lat and long values from the geometry section
+					this.model.attributes.lat = this.geocodeResult.geometry.location.A;
+					this.model.attributes.lng = this.geocodeResult.geometry.location.F;
+
+					//Set the formatted address
+					this.model.attributes.formattedAddress = this.geocodeResult.formatted_address;
+				}
+				//Load the farmers Market collection
+	            this.farmersMarket = new FarmersMarket();
+	            this.farmersMarket.url = this.model.generateURL();
+	            //this.farmersMarket.parse(JSON.parse(MockData));
+	            var self = this;
+	            this.farmersMarket.fetch().done(function(){
+		            //Display the results 
+		            self.$el.find('#resultsContainer').html('');
+
+		            self.resultsTemplate = _.template(ResultsSubTemplate,{
+		            	collection:self.farmersMarket.toJSON()
+		            });
+
+		            self.$el.find('#resultsContainer').html(self.resultsTemplate)
+
+		            //load google maps
+		            self.loadGoogleMap(self.farmersMarket);
+		            //google.maps.event.addDomListener(window, 'load', self.loadGoogleMap);
 	            });
 
-	            self.$el.find('#resultsContainer').html(self.resultsTemplate)
+		},
+		getResults:function(e){
+			e.preventDefault();
+			this.model.clearModel();
 
-	            //load google maps
-	            self.loadGoogleMap(self.farmersMarket);
-	            //google.maps.event.addDomListener(window, 'load', self.loadGoogleMap);
-            })
-
+			var data = $('#searchContainer').find('input, select').serializeObject();
+			this.setModelDataAndNavigate(data);
 
         },
 	    loadGoogleMap:function(marketCollection) {
@@ -114,7 +123,22 @@ define([
 				  	marker.setMap(map);
 			  });
 
-	      }
+	      },
+	    setModelDataAndNavigate: function(data) {
+			data = {
+				'searchLoc': data.searchLoc,
+				'products': (data.products) ? (_.isArray(data.products) ? data.products.join(',') : data.products) : '',
+				'dist': data.dist
+			};
+			this.model.set(data, {
+				validate: true,
+				validateAll: false,
+				displaySummary: false
+			});
+			if (this.model.isValid(_.keys(data))) {
+				this.displayResults();
+			}
+		},
 
 	});
 

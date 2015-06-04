@@ -76,6 +76,12 @@ require.config({
             exports:'geocomplete'
         },
 
+        // Backbone.validateAll plugin that depends on Backbone
+        backboneValidateAll: {
+            'deps': ['jquery', 'underscore', 'backbone'],
+            'exports': 'backboneValidateAll'
+        },
+
         // Backbone.ModelBinder plugin that depends on Backbone
         backboneModelBinder: {
             'deps': ['jquery', 'underscore', 'backbone'],
@@ -90,7 +96,7 @@ require.config({
         blockui: {
             "deps": ["jquery", "jqueryui"],
             "exports": "blockui"
-        }        
+        }      
 
     }
 

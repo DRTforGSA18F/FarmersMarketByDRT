@@ -50,6 +50,7 @@ define([
 			    self.geocodeResult = result;
 			  });
 
+			this.ModelBindAndValidation(this.model, this.$el);
 			// Maintains chainability
 			return this;
 

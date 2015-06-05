@@ -4,7 +4,8 @@
     <div class="col-md-6">
         <ul id="myTab" class="nav nav-pills pull-right" role="tablist">
             <li role="presentation" class="active"><a href="#list" id="list-tab" role="tab" data-toggle="tab" aria-controls="list" aria-expanded="true">List View</a></li>
-            <li role="presentation"><a href="#mapcanvas" role="tab" id="map-tab" data-toggle="tab" aria-controls="mapcanvas">Map View</a></li>
+            <!--<li role="presentation"><a href="#mapcanvas" role="tab" id="map-tab" data-toggle="tab" aria-controls="mapcanvas">Map View</a></li>-->
+            <li role="presentation"><a href="#map" role="tab" id="map-tab" data-toggle="tab" aria-controls="map">Map View</a></li>
             
         </ul>
     </div>
@@ -106,9 +107,10 @@
               </div>
             <%}%>
     </div>
-    <!--<div role="tabpanel" class="tab-pane fade" id="map" aria-labelledby="map-tab">
+    
+    <div role="tabpanel" class="fade" id="map" aria-labelledby="map-tab" style="width:900px; height:400px;">
         <div id='mapcanvas' style="width:900px; height:400px;"></div>
-    </div>-->
-    <div id='mapcanvas' style="width:900px; height:400px;"></div>
+    </div>
+    <!--<div id='mapcanvas' style="width:900px; height:400px;"></div>-->
 </div>
 

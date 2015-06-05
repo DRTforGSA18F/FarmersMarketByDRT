@@ -3,12 +3,15 @@
 <!-- adding search section -->
 <div id="searchContainer" class="row mtl mbl">
     <div class="col-md-6">
-        <div class="input-group">
-            <label for="geocomplete" class="sr-only">Type text to search</label>
-            <input id="geocomplete" type="text" class="form-control" aria-label="..." placeholder="Type in an address" autocomplete="off">
-        
-            <div class="input-group-btn">
-                <button id="btnSearch" class="btn btn-primary"><i class="glyphicon glyphicon-zoom-in"></i> Search</button>
+      <div class="control-group has-success">
+        <div class="controls">
+          <div class="input-group">
+              <label for="geocomplete" class="sr-only">Type text to search</label>
+              <input id="geocomplete" type="text" class="form-control" name="searchLoc" aria-label="..." placeholder="Type in an address" autocomplete="off">        
+              <div class="input-group-btn">
+                  <button id="btnSearch" class="btn btn-primary"><i class="glyphicon glyphicon-zoom-in"></i> Search</button>
+              </div>
+          </div>
         </div>
       </div>
     </div>
@@ -18,26 +21,90 @@
     <div class="col-xs-12 collapse" id="advSearchContainer" >
         <div class=" top_arrow_box mtl">
             <form role="form" class="row">
-    <div class="col-md-6">
-                <p> auto complete dropdown</p>
-
-    </div>
-    <div class="col-md-6">
-          <div class="checkbox">
-                        <label>
-                            <input type="checkbox" value="">Option 1</label>
-          </div>
-          <div class="checkbox">
-                        <label>
-                            <input type="checkbox" value="">Option 2</label>
-          </div>
-          <div class="checkbox disabled">
-                        <label>
-                            <input type="checkbox" value="" disabled>Option 3</label>
-          </div>
-                </div>
-        </form>
-      </div>
+              <div class="col-md-6">
+                  <div class="column">
+                        <label id="location" for="select-dist">
+                            Distance
+                        </label>
+                        <select id="select-dist" aria-required="true" name="dist" >
+                          <option value="0">Select a distance</option>
+                          <option value="1">1 mile</option>
+                          <option value="5">5 mile</option>
+                          <option value="10">10 mile</option>
+                          <option value="15">15 mile</option>
+                          <option value="20">20 mile</option>
+                          <option value="25">25 mile</option>
+                        </select>
+                  </div>          
+              </div>
+              <div class="col-md-2">
+                    <div class="checkbox">
+                        <label><input id='bakedgoods' type="checkbox" value="bakedgoods" name="products">Bakedgoods</label>
+                    </div>
+                    <div class="checkbox">
+                      <label><input id="cheese" type="checkbox" value="cheese" name="products">Cheese</label>
+                    </div>
+                    <div class="checkbox">
+                      <label><input id="crafts" type="checkbox" value="crafts" name="products">Crafts</label>
+                    </div>
+                    <div class="checkbox">
+                      <label><input id="eggs" type="checkbox" value="eggs" name="products">Eggs</label>
+                    </div>
+                    <div class="checkbox">
+                      <label><input id="flowers" type="checkbox" value="flowers" name="products">Flowers</label>
+                    </div>                  
+                    <div class="checkbox">
+                      <label><input id="herbs" type="checkbox" value="herbs" name="products">Herbs</label>
+                    </div>
+                    <div class="checkbox">
+                      <label><input id="honey" type="checkbox" value="honey" name="products">Honey</label>
+                    </div>
+              </div>
+              <div class="col-md-2">                    
+                    <div class="checkbox">
+                      <label><input id="jams" type="checkbox" value="jams" name="products">Jams</label>
+                    </div>
+                    <div class="checkbox">
+                      <label><input id="maple" type="checkbox" value="maple" name="products">Maple</label>
+                    </div>                    
+                    <div class="checkbox">
+                      <label><input id="meat" type="checkbox" value="meat" name="products">Meat</label>
+                    </div>
+                    <div class="checkbox">
+                      <label><input id="nursery" type="checkbox" value="nursery" name="products">Nursery</label>
+                    </div>
+                    <div class="checkbox">
+                      <label><input id="nuts" type="checkbox" value="nuts" name="products">Nuts</label>
+                    </div>
+                    <div class="checkbox">
+                      <label><input id="plants" type="checkbox" value="plants" name="products">Plants</label>
+                    </div>
+                    <div class="checkbox">
+                      <label><input id="poultry" type="checkbox" value="poultry" name="products">Poultry</label>
+                    </div>
+              </div>
+              <div class="col-md-2">                    
+                    <div class="checkbox">
+                      <label><input id="prepared" type="checkbox" value="prepared" name="products">Prepared</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input id="seafood" type="checkbox" value="seafood" name="products">Seafood</label>
+                    </div>                    
+                    <div class="checkbox">
+                      <label><input id="soap" type="checkbox" value="soap" name="products">Soap</label>
+                    </div>
+                    <div class="checkbox">
+                      <label><input id="trees" type="checkbox" value="trees" name="products">Trees</label>
+                    </div>
+                    <div class="checkbox">
+                      <label><input id="vegetables" type="checkbox" value="vegetables" name="products">Vegetables</label>
+                    </div>                    
+                    <div class="checkbox">
+                      <label><input id="wine" type="checkbox" value="wine" name="products">Wine</label>
+                    </div>
+              </div>
+            </form>
+        </div>
     </div>
 </div>
 <!-- End search section -->

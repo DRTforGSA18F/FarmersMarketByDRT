@@ -31,7 +31,15 @@ require.config({
 
         microplugin: '../vendor/microplugin/microplugin',
 
-        geocomplete: '../vendor/geocomplete/jquery.geocomplete'
+        geocomplete: '../vendor/geocomplete/jquery.geocomplete',
+
+        backboneModelBinder: '../vendor/Backbone.ModelBinder/Backbone.ModelBinder',
+
+        backboneValidateAll: '../vendor/Backbone.validateAll/Backbone.validateAll',
+
+        backboneValidation: './helpers/backboneValidation',
+
+        blockui: '../vendor/blockui/jquery.blockUI'        
         
     },
 
@@ -66,7 +74,29 @@ require.config({
         geocomplete:{
             deps:['jquery'],
             exports:'geocomplete'
-        }
+        },
+
+        // Backbone.validateAll plugin that depends on Backbone
+        backboneValidateAll: {
+            'deps': ['jquery', 'underscore', 'backbone'],
+            'exports': 'backboneValidateAll'
+        },
+
+        // Backbone.ModelBinder plugin that depends on Backbone
+        backboneModelBinder: {
+            'deps': ['jquery', 'underscore', 'backbone'],
+            'exports': 'backboneModelBinder'
+        },
+
+        backboneValidation: {
+            'deps': ['jquery', 'underscore', 'backbone', 'backboneValidateAll'],
+            'exports': 'backboneValidation'
+        },
+
+        blockui: {
+            "deps": ["jquery", "jqueryui"],
+            "exports": "blockui"
+        }      
 
     }
 

@@ -30,7 +30,12 @@ define([], function() {
         searchTypeState: 'state',
         searchTypeCounty: 'county',
         searchTypeCity: 'city',
-        searchTypeProximity: 'proximity'
+        searchTypeProximity: 'proximity',
+
+        locationErrorMessage: 'Error: Enter a location',
+        minLengthErrorMessage: 'Error: Enter at least two characters',
+        invalidCharErrorMessage: 'Error: Remove invalid characters',
+        invalidLocSearchErrorMessage: 'Error: Enter a valid ZIP Code or City, State or State',
     };
 
     //Returns the Constants object

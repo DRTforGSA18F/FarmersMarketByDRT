@@ -58,7 +58,7 @@ define([
 	    },
         //this rule will validate search location attribute before setting the value
         validateSearchLoc: function(value, attr, computedState) {
-            if (!value) {
+           /* if (!value) {
                 return Constants.locationErrorMessage;
             }
             if (value) {
@@ -67,7 +67,7 @@ define([
                 } else if (!(this.validateSpecChar(value))) {
                     return Constants.invalidCharErrorMessage;
                 } 
-            }
+            }*/
         },	
         validateMinLength: function(value) {
             return (value.length < 2) ? true : false;
